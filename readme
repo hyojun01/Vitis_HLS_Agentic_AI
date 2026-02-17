@@ -1,0 +1,27 @@
+256 FFT IP Project
+
+Use HLS C++
+
+Create 256-point Radix-2 DIT FFT IP with the following parameters
+FFT Size is 256
+Input and Output Port using AXIS
+IP has control interface using AXI-Lite for start, stop, etc
+Input and Output Data is 64-bit unsigned int which is concated with 32-bit signed fixed-point real and 32-bit signed fixed-point imag
+256 data which last data has tlast 1 signal are streamed into the block and then 256 data which last data has tlast 1 signal are streamed out of the block
+The flow of IP is input streaming data -> bit reverse -> fft stage -> output streaming data
+IP use DATAFLOW optimization
+The twiddle factor is stored internal memory
+
+Create the C++ source file
+Create a test bench which simulates double-tones sine wave and checks it can be completed
+Source file and test bench file can be used in Vitis HLS
+
+Use Vitis Unified IDE 2025.1
+Make Vitis HLS Project with TCL script
+Make Vitis HLS Component named FFT
+Top Function's name is fft
+ADD Source File and Testbench File
+Use xc7z020clg400-1
+Input clock frequency 100 MHz
+Do C simulation, C synthesis, C/RTL co-simulation, IP package
+Simulate and verify the results
